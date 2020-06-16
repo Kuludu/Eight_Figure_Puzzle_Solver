@@ -60,7 +60,7 @@ class DFS_Solver(solver.Solver):
                         state[space_index] = temp
                         node_state = [extand_state, state, extand_state[2] + 1]
                         if (not self.is_in_table(node_state, self.close)) and (not self.is_in_table(node_state,
-                                                                                                      self.open)):
+                                                                                                    self.open)):
                             self.open.append(node_state)
                             extanded = True
 
