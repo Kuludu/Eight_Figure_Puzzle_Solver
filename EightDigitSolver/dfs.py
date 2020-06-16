@@ -45,7 +45,7 @@ class DFS_Solver(solver.Solver):
 
             space_index = extand_state[1].index(0)
             extanded = False
-            if extand_state[2] >= self.depth:
+            if extand_state[2] > self.depth:
                 state = self.open.pop()
                 self.close.append(state)
             else:
@@ -59,10 +59,7 @@ class DFS_Solver(solver.Solver):
                         state[space_index + self.di[i]] = 0
                         state[space_index] = temp
                         node_state = [extand_state, state, extand_state[2] + 1]
-                        if state == self.target_state:
-                            self.open.append(node_state)
-                            return True
-                        elif (not self.is_in_table(node_state, self.close)) and (not self.is_in_table(node_state,
+                        if (not self.is_in_table(node_state, self.close)) and (not self.is_in_table(node_state,
                                                                                                       self.open)):
                             self.open.append(node_state)
                             extanded = True
